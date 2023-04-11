@@ -1,13 +1,22 @@
 <?php
+// function for kadane's algorithm
+function subarry($Array, $n) {
+  $a = 0;
+  $b = 0;
+  for($i=0; $i<$n; $i++) {
+    $b = $b + $Array[$i];
+    
+    if ($b < 0)
+      $b = 0; 
+    
+    if($a < $b)
+      $a = $b; 
+  }
+  return $a;
+}
 
-
-$movie[0]="Shaolin Monk";
-$movie[1]="Drunken Master";
-$movie[2]="American Ninja";
-$movie[3]="Once upon a time in China";
-$movie[4]="Replacement Killers";
-echo $movie[3];
-$movie[3] = " Eastern Condors";
-echo $movie[3];
-  
+// test the code
+$MyArray = array(-2, 1, -3, 4, -1, 2, 1, -5, 4);
+$n = sizeof($MyArray);
+echo "Maximum SubArray is: ".subarry($MyArray, $n);
 ?>
